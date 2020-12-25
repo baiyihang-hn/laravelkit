@@ -1,6 +1,6 @@
 {
-    "name": "byh/laravel-result-kit",
-    "description": "laravel api response 工具类",
+    "name": "byh/laravel-kit",
+    "description": "laravel 工具类",
     "type": "library",
     "authors": [
         {
