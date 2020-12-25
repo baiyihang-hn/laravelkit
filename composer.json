@@ -8,7 +8,7 @@
             "email": "bai.yihang@foxmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "version": "1.0.0",
     "require": {
         "php": ">=7.0"
     },
