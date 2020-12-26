@@ -29,6 +29,6 @@ class ApiResponseServiceProvider extends ServiceProvider
         $this->publishes([
             //发布result配置文件
             __DIR__ . '/config/apiresponse.php' => config_path('apiresponse.php')
-        ]);
+        ], 'apiresponse');
     }
 }
