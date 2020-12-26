@@ -1,6 +1,6 @@
 ## 开始
 
-- php artisan vendor:publish --provider="byh\laravel-kit\ApiResponseServiceProvider"
+- php artisan vendor:publish --tag="apiresponse"
 - 自定义apiresponse配置文件
 
 ## 使用
