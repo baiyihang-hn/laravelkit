@@ -56,7 +56,7 @@ class ApiResponse
      * @param int $code 状态码，默认401
      * @return array
      */
-    public function unauthorized($error = '', string $message = '不被允许的请求', int $code = 401): array
+    public function unauthorized($error = null, string $message = '不被允许的请求', int $code = 401): array
     {
         $result = $this->getResult(__FUNCTION__, $code, $message);
         $result['data'] = null;
@@ -74,7 +74,22 @@ class ApiResponse
     {
         $result = $this->getResult(__FUNCTION__, $code, $message);
         $result['data'] = null;
-        $result['error'] = '';
+        $result['error'] = null;
+        return $result;
+    }
+
+    /**
+     * 请求参数校验错误
+     * @param string $error
+     * @param string $message
+     * @param int $code
+     * @return array
+     */
+    public function requestParamsValidError(string $error, string $message = '请求参数不合法', int $code = 403)
+    {
+        $result = $this->getResult(__FUNCTION__, $code, $message);
+        $result['data'] = null;
+        $result['error'] = $error;
         return $result;
     }
 
