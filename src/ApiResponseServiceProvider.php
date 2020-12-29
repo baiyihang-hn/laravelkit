@@ -13,11 +13,6 @@ class ApiResponseServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->publishes(
-            //发布config配置文件
-            [
-                __DIR__ . '/config/apiresponse.php' => config_path('apiresponse.php')
-            ], 'apiresponse');
         //单例服务
         $this->app->singleton('apiResponse', function ($app) {
             return new ApiResponse($app['config']);
@@ -31,10 +26,12 @@ class ApiResponseServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes(
-        //发布config配置文件
-            [
-                __DIR__ . '/config/apiresponse.php' => config_path('apiresponse.php')
-            ], 'apiresponse');
+        if ($this->app->runningInConsole()) {
+            $this->publishes(
+            //发布config配置文件
+                [
+                    __DIR__ . '/../config/apiresponse.php' => config_path('apiresponse.php')
+                ], 'apiresponse-config');
+        }
     }
 }
