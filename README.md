@@ -1,22 +1,39 @@
-## 开始
+## 安装
+- composer require byh/laravel-kit
 
-- php artisan vendor:publish --tag="apiresponse"
-- 自定义apiresponse配置文件
+## 添加服务
+ 在config下app.provider里面添加
+
+    \Byh\LaravelKit\ApiResponseServiceProvider::class,
+    
+ 如果要使用Facade门面，需要在config下app.aliases中添加
+ 
+    'ApiResponse' => \Byh\LaravelKit\Facades\ApiResponse::class
+    
+## 发布配置
+php artisan vendor:publish
+发布成功后即可在config下发现apiresponse.php文件，该文件用于自定义返回参数设置
 
 ## 使用
-
+    
+    //成功
     public function testSuccess()
     {
         return ApiResponse::success('hahaha');
     }
 
+    //失败
     public function testFail()
     {
         return ApiResponse::fail('errrrrrr');
     }
     
-Exceptions下的handle中：
+
+
     
+## Exceptions
+全局异常处理中（app/Exceptions/handle）添加对UnauthorizedException,RequestParamsValidException的处理
+
     public function render($request, Throwable $e)
     {
         if ($e instanceof NotFoundHttpException) {

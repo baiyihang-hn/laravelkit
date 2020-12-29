@@ -100,7 +100,7 @@ class ApiResponse
      * @param string $message 返回值message
      * @return array
      */
-    private function getResult(string $type, int $code, string $message): array
+    public function getResult(string $type, int $code, string $message): array
     {
         $result = array('code' => $code, 'message' => $message);
         if (isset($this->codeMsg[$type])) {
@@ -115,7 +115,7 @@ class ApiResponse
      * @param int $code
      * @return string
      */
-    private function getStatus(int $code): string
+    public function getStatus(int $code): string
     {
         $s = '';
         foreach ($this->status as $key => $value) {
