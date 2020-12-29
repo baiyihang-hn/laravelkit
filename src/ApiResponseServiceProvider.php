@@ -31,6 +31,10 @@ class ApiResponseServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes(
+        //发布config配置文件
+            [
+                __DIR__ . '/config/apiresponse.php' => config_path('apiresponse.php')
+            ], 'apiresponse');
     }
 }
